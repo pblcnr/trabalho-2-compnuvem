@@ -21,4 +21,8 @@ function getReadPool() {
   return pool;
 }
 
-export { getReadPool };
+function closeReadPools() {
+  return Promise.all(readPools.map(p => p.end()));
+}
+
+export { getReadPool, closeReadPools };

@@ -1,4 +1,4 @@
 import writePool from './write.js';
-import { getReadPool } from './read.js';
+import { getReadPool, closeReadPools } from './read.js';
 
-export { writePool, getReadPool };
+export { writePool, getReadPool, closeReadPools };
