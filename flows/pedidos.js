@@ -15,10 +15,9 @@ async function insertPedidos() {
     );
     const cliente = clientes[0];
 
-    const numProdutos = randomInt(1, 3);
+    const numProdutos = parseInt(randomInt(1, 3), 10);
     const [produtos] = await getReadPool().execute(
-      'SELECT id, valor FROM produto ORDER BY RAND() LIMIT ?',
-      [numProdutos]
+      `SELECT id, valor FROM produto ORDER BY RAND() LIMIT ${numProdutos}`
     );
 
     const itens = produtos.map(p => ({ ...p, valor: parseFloat(p.valor), quantidade: randomInt(1, 3) }));
