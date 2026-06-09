@@ -1,0 +1,13 @@
+{
+  "name": "trabalho-2-compnuvem",
+  "version": "1.0.0",
+  "scripts": {
+    "flows": "node flows/index.js",
+    "api": "node api/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.18.0",
+    "mysql2": "^3.0.0"
+  }
+}
