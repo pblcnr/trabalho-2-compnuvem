@@ -1,7 +1,7 @@
-require('dotenv').config();
-const mysql = require('mysql2/promise');
+import 'dotenv/config';
+import { createPool } from 'mysql2/promise';
 
-const writePool = mysql.createPool({
+const writePool = createPool({
   host:     process.env.DB_WRITE_HOST,
   port:     process.env.DB_WRITE_PORT,
   user:     process.env.DB_WRITE_USER,
@@ -9,4 +9,4 @@ const writePool = mysql.createPool({
   database: process.env.DB_WRITE_DATABASE,
 });
 
-module.exports = writePool;
+export default writePool;

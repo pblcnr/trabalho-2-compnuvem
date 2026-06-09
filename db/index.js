@@ -1,4 +1,4 @@
-const writePool = require('./write');
-const { getReadPool } = require('./read');
+import writePool from './write.js';
+import { getReadPool } from './read.js';
 
-module.exports = { writePool, getReadPool };
+export { writePool, getReadPool };

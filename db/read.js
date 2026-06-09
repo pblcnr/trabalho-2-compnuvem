@@ -1,10 +1,10 @@
-require('dotenv').config();
-const mysql = require('mysql2/promise');
+import 'dotenv/config';
+import { createPool } from 'mysql2/promise';
 
 const hosts = process.env.DB_READ_HOSTS.split(',').map(h => h.trim());
 
 const readPools = hosts.map(host =>
-  mysql.createPool({
+  createPool({
     host,
     port:     process.env.DB_READ_PORT,
     user:     process.env.DB_READ_USER,
@@ -21,4 +21,4 @@ function getReadPool() {
   return pool;
 }
 
-module.exports = { getReadPool };
+export { getReadPool };
