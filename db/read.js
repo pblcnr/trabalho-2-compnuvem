@@ -10,6 +10,9 @@ const readPools = hosts.map(host =>
     user:     process.env.DB_READ_USER,
     password: process.env.DB_READ_PASSWORD,
     database: process.env.DB_READ_DATABASE,
+    ssl: {
+      rejectUnauthorized: false,
+    },
   })
 );
 

@@ -8,15 +8,19 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 let rodando = true;
 
+let encerrando = false;
+
 const encerrar = async () => {
-  console.log('\nEncerrando aplicação de fluxos graciosamente...');
+  if (encerrando) return;
+  encerrando = true;
+  console.log('\nEncerrando aplicação');
   rodando = false;
   try {
     await writePool.end();
     await closeReadPools();
     console.log('Pools de conexão encerrados com sucesso!');
   } catch (err) {
-    console.error('Erro ao fechar os pools de conexão:', err);
+
   }
   process.exit(0);
 };

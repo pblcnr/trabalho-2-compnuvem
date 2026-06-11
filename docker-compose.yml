@@ -1,10 +1,22 @@
 services:
-  mysql:
+  mysql-write:
     image: mysql:8
+    container_name: mysql-write
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: aula-db
     ports:
       - "3306:3306"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+
+  mysql-read:
+    image: mysql:8
+    container_name: mysql-read
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: aula-db
+    ports:
+      - "3307:3306"
     volumes:
       - ./db:/docker-entrypoint-initdb.d

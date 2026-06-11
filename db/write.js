@@ -7,6 +7,9 @@ const writePool = createPool({
   user:     process.env.DB_WRITE_USER,
   password: process.env.DB_WRITE_PASSWORD,
   database: process.env.DB_WRITE_DATABASE,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 export default writePool;
